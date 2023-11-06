@@ -47,8 +47,6 @@ Template Post Type: post, page
                     if (have_rows('czeny_kartochki')) :
                         $i = 1;
                         while (have_rows('czeny_kartochki')) : the_row();
-
-                            the_sub_field('sub_field_name');
                     ?>
                             <div class="price__item <?php the_sub_field('css_klass_oformleniya_kartochki'); ?>">
                                 <div class="price__header">
@@ -159,7 +157,6 @@ Template Post Type: post, page
                     if (have_rows('kejsy_kartochki')) :
                         $i = 1;
                         while (have_rows('kejsy_kartochki')) : the_row();
-
                     ?>
                             <div class="cases__item">
                                 <div class="cases__inner">

@@ -8,94 +8,81 @@ $home_uri = get_home_url();
 <div class="wrapper home">
 
 
+    <?php if (get_field('pervyj_ekran_zagolovok_chast_1')) { ?>
+        <div class="top">
+            <div class="container">
+                <div class="top__inner">
 
-    <div class="top">
-        <div class="container">
-            <div class="top__inner">
+                    <div class="top__first">
+                        <h1 class="top__title">
+                            <div class="top__title-1"><?php the_field('pervyj_ekran_zagolovok_chast_1') ?></div>
+                            <div class="top__title-2"><span class="yellow"><?php the_field('pervyj_ekran_zagolovok_chast_2') ?></span> <?php the_field('pervyj_ekran_zagolovok_chast_3') ?></div>
+                        </h1>
+                        <div class="top__first-item-wrapper">
 
-                <div class="top__first">
-                    <h1 class="top__title">
-                        <div class="top__title-1">Продвижение</div>
-                        <div class="top__title-2"><span class="yellow">англоязычных</span> сайтов</div>
-                    </h1>
-                    <div class="top__first-item-wrapper">
-                        <div class="top__first-item">
-                            <div class="top__first-item-icon">
-                                <img src="<?php echo $temp_uri ?>/assets/img/home/icon-1.svg" alt="">
-                            </div>
-                            <div class="top__first-item-desc">
-                                Наша команда специалистов занимается раскруткой сайтов на английском языке уже много лет.
-                            </div>
-                        </div>
-                        <div class="top__first-item">
-                            <div class="top__first-item-icon">
-                                <img src="<?php echo $temp_uri ?>/assets/img/home/icon-1.svg" alt="">
-                            </div>
-                            <div class="top__first-item-desc">
-                                Мы не просто продвигаем сайты, мы создаем комплексные стратегии, которые работают в поисковых системах.
-                            </div>
-                        </div>
-                    </div>
-                    <div class="top__first-tag-wrapper">
-                        <span>Marketing</span>
-                        <span>SEO</span>
-                        <span>Email</span>
-                        <span>Website</span>
-                        <span>Analysis</span>
-                    </div>
-                </div>
-                <div class="top__second">
-
-                    <form class="feedback" action="">
-                        <div class="feedback__inner">
-                            <div class="feedback__top">
-                                <div class="feedback__label">Заполните форму заявки и мы вернемся с предложением!</div>
-                                <div class="feedback__input-wrapper">
-                                    <div class="feedback__input">
-                                        <input type="text" placeholder="Имя">
+                            <?php if (get_field('pervyj_ekran_pod_zagolovkom_punkt_1')) { ?>
+                                <div class="top__first-item">
+                                    <div class="top__first-item-icon">
+                                        <img src="<?php echo $temp_uri ?>/assets/img/home/icon-1.svg" alt="">
                                     </div>
-                                    <div class="feedback__input">
-                                        <input type="text" placeholder="Email">
-                                    </div>
-                                    <div class="feedback__input">
-                                        <textarea placeholder="Комментарий"></textarea>
+                                    <div class="top__first-item-desc">
+                                        <?php the_field('pervyj_ekran_pod_zagolovkom_punkt_1') ?>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="feedback__bottom">
-                                <div class="feedback__bottom-inner">
-                                    <div class="btn-wrapper">
-                                        <input type="submit" class="btn btn_check-yellow" value="Оставить заявку">
+                            <?php } ?>
+
+                            <?php if (get_field('pervyj_ekran_pod_zagolovkom_punkt_2')) { ?>
+                                <div class="top__first-item">
+                                    <div class="top__first-item-icon">
+                                        <img src="<?php echo $temp_uri ?>/assets/img/home/icon-1.svg" alt="">
+                                    </div>
+                                    <div class="top__first-item-desc">
+                                        <?php the_field('pervyj_ekran_pod_zagolovkom_punkt_2') ?>
                                     </div>
                                 </div>
-                            </div>
+                            <?php } ?>
+
                         </div>
-                    </form>
+                        <div class="top__first-tag-wrapper">
+                            <?php
+                            if (have_rows('pervyj_ekran_tegi')) :
+                                while (have_rows('pervyj_ekran_tegi')) : the_row();
+                            ?>
+                                    <span><?php the_sub_field('teg'); ?></span>
+                            <?php
+                                endwhile;
+                            endif;
+                            ?>
+                        </div>
+                    </div>
+                    <div class="top__second">
+
+                        <div class="feedback">
+                            <?php echo do_shortcode('[contact-form-7 id="c444a95" title="Форма обратно связи"]'); ?>
+                        </div>
+
+                    </div>
 
                 </div>
-
             </div>
         </div>
-    </div>
+    <?php } ?>
 
 
-
-    <!-- uslugi -->
-    <?php if (get_field('uslugi_lejbl')) { ?>
+    <!-- uslugi2 -->
+    <?php if (get_field('uslugi2_lejbl')) { ?>
         <!-- START УСЛУГИ -->
         <div class="block">
             <div class="container">
-                <div class="block__label"><?php the_field('uslugi_lejbl'); ?></div>
-                <h2 class="block__title mw740"><?php the_field('uslugi_zagolovok'); ?></h2>
+                <div class="block__label"><?php the_field('uslugi2_lejbl'); ?></div>
+                <h2 class="block__title mw740"><?php the_field('uslugi2_zagolovok'); ?></h2>
 
                 <div class="price">
 
                     <?php
-                    if (have_rows('uslugi_kartochki')) :
+                    if (have_rows('uslugi2_kartochki')) :
                         $i = 1;
-                        while (have_rows('uslugi_kartochki')) : the_row();
-
-                            the_sub_field('sub_field_name');
+                        while (have_rows('uslugi2_kartochki')) : the_row();
                     ?>
                             <div class="price__item <?php the_sub_field('css_klass_oformleniya_kartochki'); ?>">
                                 <div class="price__header">
@@ -154,7 +141,6 @@ $home_uri = get_home_url();
     <?php } ?>
 
 
-
     <!-- utp -->
     <?php if (get_field('utp_lejbl')) { ?>
         <!-- START УТП -->
@@ -193,89 +179,153 @@ $home_uri = get_home_url();
     <?php } ?>
 
 
+    <!-- Кейсы  -->
+    <?php if (get_field('kejsy_lejbl')) { ?>
+        <!-- START Кейсы -->
+        <div class="block">
+            <div class="container">
+                <div class="block__label"><?php the_field('kejsy_lejbl'); ?></div>
+                <h2 class="block__title block__title_flex">
+                    <div><?php the_field('kejsy_zagolovok'); ?></div>
+                    <div>
+                        <?php if (get_field('kejsy_lejbl')) { ?>
+                            <a href="<?php the_field('kejsy_ssylka_knopki'); ?>">
+                                <div class="btn btn_arrow-black"><?php the_field('kejsy_nazvanie_knopki'); ?></div>
+                            </a>
+                        <?php } ?>
+                    </div>
+                </h2>
 
-    <!-- START Кейсы -->
-    <div class="block">
-        <div class="container">
-            <div class="block__label">Кейсы</div>
-            <h2 class="block__title block__title_flex">
-                <div>Делаем успешные проекты</div>
-                <div>
-                    <a href="#">
-                        <div class="btn btn_arrow-black">Все кейсы</div>
-                    </a>
-                </div>
-            </h2>
 
-            <div class="cases-2">
+                <div class="cases-2">
 
-                <div class="cases-2__item cases-2__item_big">
-                    <div class="cases-2__inner">
-                        <img src="<?php echo $temp_uri ?>/assets/img/home/image-1.png" alt="">
-                        <h3 class="cases-2__title">Crypto Agency Marketing</h3>
-                        <div class="cases-2__bottom">
-                            <div class="cases-2__tags">
-                                <span>Marketing</span>
-                                <span>SEO</span>
+                    <?php if (get_field('kejsy_kartochki_kejs_01_zagolovok')) { ?>
+                        <div class="cases-2__item cases-2__item_big">
+                            <div class="cases-2__inner">
+                                <?php
+                                $kartinka1 = get_field('kejsy_kartochki_kejs_01_kartinka_zadnij_fon');
+                                if (!empty($kartinka1)) { ?>
+                                    <img src="<?php echo $kartinka1['url']; ?>" alt="<?php echo $kartinka1['alt']; ?>" />
+                                <?php } ?>
+                                <h3 class="cases-2__title"><?php the_field('kejsy_kartochki_kejs_01_zagolovok'); ?></h3>
+                                <div class="cases-2__bottom">
+                                    <div class="cases-2__tags">
+                                        <?php
+                                        if (have_rows('kejsy_kartochki_kejs_01_tegi')) :
+                                            while (have_rows('kejsy_kartochki_kejs_01_tegi')) : the_row();
+                                        ?>
+                                                <span><?php the_sub_field('teg'); ?></span>
+                                        <?php
+                                            endwhile;
+                                        endif;
+                                        ?>
+                                    </div>
+                                    <div class="cases-2__btn">
+                                        <a href="<?php the_field('kejsy_kartochki_kejs_01_ssylka_knopki'); ?>">
+                                            <div class="btn btn_arrow-yellow"><?php the_field('kejsy_kartochki_kejs_01_nazvanie_knopki'); ?></div>
+                                        </a>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="cases-2__btn">
-                                <div class="btn btn_arrow-yellow">Подробнее</div>
+                        </div>
+                    <?php } ?>
+
+
+                    <div class="cases-2__item cases-2__item_double">
+
+                        <div class="cases-2__inner">
+                            <?php
+                            $kartinka2 = get_field('kejsy_kartochki_kejs_02_kartinka_zadnij_fon_2');
+                            if (!empty($kartinka2)) { ?>
+                                <img src="<?php echo $kartinka2['url']; ?>" alt="<?php echo $kartinka2['alt']; ?>" />
+                            <?php } ?>
+                            <h3 class="cases-2__title"><?php the_field('kejsy_kartochki_kejs_02_zagolovok'); ?></h3>
+                            <div class="cases-2__bottom">
+                                <div class="cases-2__tags">
+                                    <?php
+                                    if (have_rows('kejsy_kartochki_kejs_02_tegi')) :
+                                        while (have_rows('kejsy_kartochki_kejs_02_tegi')) : the_row();
+                                    ?>
+                                            <span><?php the_sub_field('teg'); ?></span>
+                                    <?php
+                                        endwhile;
+                                    endif;
+                                    ?>
+                                </div>
+                                <div class="cases-2__btn">
+                                    <a href="<?php the_field('kejsy_kartochki_kejs_02_ssylka_knopki'); ?>">
+                                        <div class="btn btn_arrow-yellow"><?php the_field('kejsy_kartochki_kejs_02_nazvanie_knopki'); ?></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="cases-2__inner">
+                            <?php
+                            $kartinka3 = get_field('kejsy_kartochki_kejs_03_kartinka_zadnij_fon_3');
+                            if (!empty($kartinka3)) { ?>
+                                <img src="<?php echo $kartinka3['url']; ?>" alt="<?php echo $kartinka3['alt']; ?>" />
+                            <?php } ?>
+                            <h3 class="cases-2__title"><?php the_field('kejsy_kartochki_kejs_03_zagolovok'); ?></h3>
+                            <div class="cases-2__bottom">
+                                <div class="cases-2__tags">
+                                    <?php
+                                    if (have_rows('kejsy_kartochki_kejs_03_tegi')) :
+                                        while (have_rows('kejsy_kartochki_kejs_03_tegi')) : the_row();
+                                    ?>
+                                            <span><?php the_sub_field('teg'); ?></span>
+                                    <?php
+                                        endwhile;
+                                    endif;
+                                    ?>
+                                </div>
+                                <div class="cases-2__btn">
+                                    <a href="<?php the_field('kejsy_kartochki_kejs_03_ssylka_knopki'); ?>">
+                                        <div class="btn btn_arrow-yellow"><?php the_field('kejsy_kartochki_kejs_03_nazvanie_knopki'); ?></div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                    <div class="cases-2__item cases-2__item_big">
+                        <div class="cases-2__inner">
+                            <?php
+                            $kartinka4 = get_field('kejsy_kartochki_kejs_04_kartinka_zadnij_fon');
+                            if (!empty($kartinka4)) { ?>
+                                <img src="<?php echo $kartinka4['url']; ?>" alt="<?php echo $kartinka4['alt']; ?>" />
+                            <?php } ?>
+                            <h3 class="cases-2__title"><?php the_field('kejsy_kartochki_kejs_04_zagolovok'); ?></h3>
+                            <div class="cases-2__bottom">
+                                <div class="cases-2__tags">
+                                    <?php
+                                    if (have_rows('kejsy_kartochki_kejs_04_tegi')) :
+                                        while (have_rows('kejsy_kartochki_kejs_04_tegi')) : the_row();
+                                    ?>
+                                            <span><?php the_sub_field('teg'); ?></span>
+                                    <?php
+                                        endwhile;
+                                    endif;
+                                    ?>
+                                </div>
+                                <div class="cases-2__btn">
+                                    <a href="<?php the_field('kejsy_kartochki_kejs_04_ssylka_knopki'); ?>">
+                                        <div class="btn btn_arrow-yellow"><?php the_field('kejsy_kartochki_kejs_04_nazvanie_knopki'); ?></div>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <div class="cases-2__item cases-2__item_double">
-                    <div class="cases-2__inner">
-                        <img src="<?php echo $temp_uri ?>/assets/img/home/image-2.png" alt="">
-                        <h3 class="cases-2__title">Crypto Agency Marketing</h3>
-                        <div class="cases-2__bottom">
-                            <div class="cases-2__tags">
-                                <span>Marketing</span>
-                                <span>SEO</span>
-                            </div>
-                            <div class="cases-2__btn">
-                                <div class="btn btn_arrow-yellow">Подробнее</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cases-2__inner">
-                        <img src="<?php echo $temp_uri ?>/assets/img/home/image-2.png" alt="">
-                        <h3 class="cases-2__title">Crypto Agency Marketing</h3>
-                        <div class="cases-2__bottom">
-                            <div class="cases-2__tags">
-                                <span>Marketing</span>
-                                <span>SEO</span>
-                            </div>
-                            <div class="cases-2__btn">
-                                <div class="btn btn_arrow-yellow">Подробнее</div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="cases-2__item cases-2__item_big">
-                    <div class="cases-2__inner">
-                        <img src="<?php echo $temp_uri ?>/assets/img/home/image-1.png" alt="">
-                        <h3 class="cases-2__title">Crypto Agency Marketing</h3>
-                        <div class="cases-2__bottom">
-                            <div class="cases-2__tags">
-                                <span>Marketing</span>
-                                <span>SEO</span>
-                            </div>
-                            <div class="cases-2__btn">
-                                <div class="btn btn_arrow-yellow">Подробнее</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
 
             </div>
-
         </div>
-    </div>
-    <!-- END Кейсы -->
-
+        <!-- END Кейсы -->
+    <?php } ?>
 
 
     <!-- otzyvy_klientov -->
@@ -344,7 +394,6 @@ $home_uri = get_home_url();
     <?php } ?>
 
 
-
     <!-- etapy_raboty -->
     <?php if (get_field('etapy_raboty_lejbl')) { ?>
         <!-- START ЭТАПЫ РАБОТЫ -->
@@ -384,100 +433,74 @@ $home_uri = get_home_url();
     <?php } ?>
 
 
+    <?php if (get_field('dlya_kogo_lejbl')) { ?>
+        <!-- START Для кого -->
+        <div class="block block_yellow">
+            <div class="container">
+                <div class="block__label"><?php the_field('dlya_kogo_lejbl'); ?></div>
+                <h2 class="block__title"><?php the_field('dlya_kogo_zagolovok'); ?></h2>
 
-    <!-- START Для кого -->
-    <div class="block block_yellow">
-        <div class="container">
-            <div class="block__label">Для кого</div>
-            <h2 class="block__title">Кому подходит услуга продвижения на западных рынках</h2>
+                <div class="forwhom">
 
-            <div class="forwhom">
 
-                <div class="forwhom__item">
-                    <div class="forwhom__header">
-                        <div class="forwhom__icon">
-                            <img src="<?php echo $temp_uri ?>/assets/img/home/forwhom/forwhom-icon-1.svg" alt="">
+                    <?php
+                    if (have_rows('dlya_kogo_kartochki')) :
+                        $i = 1;
+                        while (have_rows('dlya_kogo_kartochki')) : the_row();
+                    ?>
+                            <div class="forwhom__item">
+                                <div class="forwhom__header">
+                                    <div class="forwhom__icon">
+                                        <?php
+                                        $kartinka = get_sub_field('kartinka');
+                                        if (!empty($kartinka)) : ?>
+                                            <img src="<?php echo $kartinka['url']; ?>" alt="<?php echo $kartinka['alt']; ?>" />
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="forwhom__counter counter">
+                                        <?php if ($i < 10) {
+                                            echo '0' . $i;
+                                        } else {
+                                            echo $i;
+                                        }; ?>
+                                    </div>
+                                </div>
+                                <h3 class="forwhom__title"><?php the_sub_field('zagolovok'); ?></h3>
+                                <div class="forwhom__desc"><?php the_sub_field('opisanie'); ?></div>
+                            </div>
+                    <?php
+                            $i++;
+                        endwhile;
+                    endif;
+                    ?>
+
+                    <?php if (get_field('dlya_kogo_poslednyaya_kartochka_zagolovok')) { ?>
+                        <div class="forwhom__item forwhom__item_last">
+                            <h3 class="forwhom__title"><?php the_field('dlya_kogo_poslednyaya_kartochka_zagolovok'); ?></h3>
+                            <div class="forwhom__bottom">
+                                <div class="forwhom__btn-right">
+                                    <a href="<?php the_field('dlya_kogo_poslednyaya_kartochka_ssylka_levoj_knopki'); ?>"></a>
+                                </div>
+                                <div class="forwhom__btn-left">
+                                    <?php if (get_field('dlya_kogo_poslednyaya_kartochka_ssylka_pravoj_knopki')) { ?>
+                                        <a href="<?php the_field('dlya_kogo_poslednyaya_kartochka_ssylka_pravoj_knopki'); ?>">
+                                            <div class="btn btn__check-yellow"><?php the_field('dlya_kogo_poslednyaya_kartochka_nazvanie_pravoj_knopki'); ?></div>
+                                        </a>
+                                    <?php } else { ?>
+                                        <div class="btn btn__check-yellow"><?php the_field('dlya_kogo_poslednyaya_kartochka_nazvanie_pravoj_knopki'); ?></div>
+                                    <?php } ?>
+                                </div>
+                            </div>
                         </div>
-                        <div class="forwhom__counter counter"></div>
-                    </div>
-                    <h3 class="forwhom__title">Интернет-магазины</h3>
-                    <div class="forwhom__desc">
-                        Увеличиваем продажи товаров, повышаем конверсию и лояльность клиентов, снижаем стоимость привлечения покупателей
-                    </div>
+                    <?php } ?>
+
                 </div>
 
-                <div class="forwhom__item">
-                    <div class="forwhom__header">
-                        <div class="forwhom__icon">
-                            <img src="<?php echo $temp_uri ?>/assets/img/home/forwhom/forwhom-icon-2.svg" alt="">
-                        </div>
-                        <div class="forwhom__counter counter"></div>
-                    </div>
-                    <h3 class="forwhom__title">Сайты услуг</h3>
-                    <div class="forwhom__desc">
-                        Привлекаем потенциальных заказчиков, увеличиваем количество заявок и звонков, повышаем доверие и улучшаем репутацию компании
-                    </div>
-                </div>
-
-                <div class="forwhom__item">
-                    <div class="forwhom__header">
-                        <div class="forwhom__icon">
-                            <img src="<?php echo $temp_uri ?>/assets/img/home/forwhom/forwhom-icon-3.svg" alt="">
-                        </div>
-                        <div class="forwhom__counter counter"></div>
-                    </div>
-                    <h3 class="forwhom__title">Корпоративные сайты</h3>
-                    <div class="forwhom__desc">
-                        Расширяем аудиторию и географию рынка, улучшаем восприятие и повышаем узнаваемость бренда, помогаем выделиться среди конкурентов
-                    </div>
-                </div>
-
-                <div class="forwhom__item">
-                    <div class="forwhom__header">
-                        <div class="forwhom__icon">
-                            <img src="<?php echo $temp_uri ?>/assets/img/home/forwhom/forwhom-icon-4.svg" alt="">
-                        </div>
-                        <div class="forwhom__counter counter"></div>
-                    </div>
-                    <h3 class="forwhom__title">Информационные ресурсы</h3>
-                    <div class="forwhom__desc">
-                        Увеличиваем посещаемость и вовлеченность аудитории, помогаем монетизировать трафик через рекламу или партнерские программы.
-                    </div>
-                </div>
-
-                <div class="forwhom__item">
-                    <div class="forwhom__header">
-                        <div class="forwhom__icon">
-                            <img src="<?php echo $temp_uri ?>/assets/img/home/forwhom/forwhom-icon-5.svg" alt="">
-                        </div>
-                        <div class="forwhom__counter counter"></div>
-                    </div>
-                    <h3 class="forwhom__title">Контентные проекты</h3>
-                    <div class="forwhom__desc">
-                        Привлекаем заинтересованных читателей, расширяем охват и влияние, улучшаем качество и релевантность контента
-                    </div>
-                </div>
-
-                <!-- start не в цикле -->
-                <div class="forwhom__item">
-                    <h3 class="forwhom__title">Нужно продвижения на западных рынках ?</h3>
-                    <div class="forwhom__bottom">
-                        <div class="forwhom__btn-right">
-                            <a href="#"></a>
-                        </div>
-                        <div class="forwhom__btn-left">
-                            <div class="btn btn__check-yellow">Оставить заявку</div>
-                        </div>
-                    </div>
-                </div>
-                <!-- end не в цикле -->
 
             </div>
-
-
         </div>
-    </div>
-    <!-- END Для кого -->
+        <!-- END Для кого -->
+    <?php } ?>
 
 
 
@@ -566,7 +589,7 @@ $home_uri = get_home_url();
     <div class="block">
         <div class="container">
             <div class="block__label">Блог</div>
-            <h2 class="block__title">
+            <h2 class="block__title block__title_flex">
                 <div>У нас интересный блог</div>
                 <div>
                     <a href="#">
@@ -581,18 +604,20 @@ $home_uri = get_home_url();
                     <div class="blog__img">
                         <img src="<?php echo $temp_uri ?>/assets/img/home/blog-image.png" alt="">
                     </div>
-                    <div class="blog__tags">
-                        <span>Marketing</span>
-                        <span>SEO</span>
-                    </div>
-                    <h3 class="blog__title">Как проверить позиции сайта в поисковых системах</h3>
-                    <div class="blog__desc">
-                        Каждый оптимизатор, маркетолог и владелец бизнеса должен знать, какие позиции занимает его сайт по ключевым поисковым запросам. Для оптимизатора важно своевременно оценить...
-                    </div>
-                    <div class="blog__footer">
-                        <div class="blog__date"></div>
-                        <div class="blog__btn">
-                            <div class="btn btn_plus-blue">Подробнее</div>
+                    <div class="blog__body">
+                        <div class="blog__tags">
+                            <span>Marketing</span>
+                            <span>SEO</span>
+                        </div>
+                        <h3 class="blog__title">Как проверить позиции сайта в поисковых системах</h3>
+                        <div class="blog__desc">
+                            Каждый оптимизатор, маркетолог и владелец бизнеса должен знать, какие позиции занимает его сайт по ключевым поисковым запросам. Для оптимизатора важно своевременно оценить...
+                        </div>
+                        <div class="blog__footer">
+                            <div class="blog__date">7 октября 2023</div>
+                            <div class="blog__btn">
+                                <div class="btn btn_plus-blue">Подробнее</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -600,18 +625,20 @@ $home_uri = get_home_url();
                     <div class="blog__img">
                         <img src="<?php echo $temp_uri ?>/assets/img/home/blog-image.png" alt="">
                     </div>
-                    <div class="blog__tags">
-                        <span>Marketing</span>
-                        <span>SEO</span>
-                    </div>
-                    <h3 class="blog__title">Как проверить позиции сайта в поисковых системах</h3>
-                    <div class="blog__desc">
-                        Каждый оптимизатор, маркетолог и владелец бизнеса должен знать, какие позиции занимает его сайт по ключевым поисковым запросам. Для оптимизатора важно своевременно оценить...
-                    </div>
-                    <div class="blog__footer">
-                        <div class="blog__date"></div>
-                        <div class="blog__btn">
-                            <div class="btn btn_plus-blue">Подробнее</div>
+                    <div class="blog__body">
+                        <div class="blog__tags">
+                            <span>Marketing</span>
+                            <span>SEO</span>
+                        </div>
+                        <h3 class="blog__title">Как проверить позиции сайта в поисковых системах</h3>
+                        <div class="blog__desc">
+                            Каждый оптимизатор, маркетолог и владелец бизнеса должен знать, какие позиции занимает его сайт по ключевым поисковым запросам. Для оптимизатора важно своевременно оценить...
+                        </div>
+                        <div class="blog__footer">
+                            <div class="blog__date">7 октября 2023</div>
+                            <div class="blog__btn">
+                                <div class="btn btn_plus-blue">Подробнее</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -619,18 +646,20 @@ $home_uri = get_home_url();
                     <div class="blog__img">
                         <img src="<?php echo $temp_uri ?>/assets/img/home/blog-image.png" alt="">
                     </div>
-                    <div class="blog__tags">
-                        <span>Marketing</span>
-                        <span>SEO</span>
-                    </div>
-                    <h3 class="blog__title">Как проверить позиции сайта в поисковых системах</h3>
-                    <div class="blog__desc">
-                        Каждый оптимизатор, маркетолог и владелец бизнеса должен знать, какие позиции занимает его сайт по ключевым поисковым запросам. Для оптимизатора важно своевременно оценить...
-                    </div>
-                    <div class="blog__footer">
-                        <div class="blog__date"></div>
-                        <div class="blog__btn">
-                            <div class="btn btn_plus-blue">Подробнее</div>
+                    <div class="blog__body">
+                        <div class="blog__tags">
+                            <span>Marketing</span>
+                            <span>SEO</span>
+                        </div>
+                        <h3 class="blog__title">Как проверить позиции сайта в поисковых системах</h3>
+                        <div class="blog__desc">
+                            Каждый оптимизатор, маркетолог и владелец бизнеса должен знать, какие позиции занимает его сайт по ключевым поисковым запросам. Для оптимизатора важно своевременно оценить...
+                        </div>
+                        <div class="blog__footer">
+                            <div class="blog__date">7 октября 2023</div>
+                            <div class="blog__btn">
+                                <div class="btn btn_plus-blue">Подробнее</div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -654,7 +683,7 @@ $home_uri = get_home_url();
                     <form class="feedback" action="">
                         <div class="feedback__inner">
                             <div class="feedback__top">
-                                <div class="feedback__label"></div>
+                                <div class="feedback__label">Заполните форму заявки и мы вернемся с предложением!</div>
                                 <div class="feedback__input-wrapper">
                                     <div class="feedback__input">
                                         <input type="text" placeholder="имя">
@@ -668,7 +697,11 @@ $home_uri = get_home_url();
                                 </div>
                             </div>
                             <div class="feedback__bottom">
-                                <input type="submit" class="btn btn_check-yellow" value="Оставить заявку">
+                                <div class="feedback__bottom-inner">
+                                    <div class="btn-wrapper">
+                                        <input type="submit" class="btn btn_check-yellow" value="Оставить заявку">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </form>
@@ -705,20 +738,29 @@ $home_uri = get_home_url();
                         <div class="detail-carts__item detail-carts__item_blue">
                             <div class="detail-carts__header">
                                 <div class="detail-carts__num">16054</div>
-                                <div class="detail-carts__icon">Ключевых слов выведено в топ</div>
+                                <div class="detail-carts__icon"></div>
+                            </div>
+                            <div class="detail-carts__footer">
+                                Ключевых слов выведено в топ
                             </div>
                         </div>
 
                         <div class="detail-carts__item detail-carts__item_blue">
                             <div class="detail-carts__header">
                                 <div class="detail-carts__num">1000</div>
-                                <div class="detail-carts__icon">Счастливых клиентов</div>
+                                <div class="detail-carts__icon"></div>
+                            </div>
+                            <div class="detail-carts__footer">
+                                Счастливых клиентов
                             </div>
                         </div>
                         <div class="detail-carts__item detail-carts__item_yellow">
                             <div class="detail-carts__header">
                                 <div class="detail-carts__num">100%</div>
-                                <div class="detail-carts__icon">Процент удовлетворенности нашими услугами</div>
+                                <div class="detail-carts__icon"></div>
+                            </div>
+                            <div class="detail-carts__footer">
+                                Процент удовлетворенности нашими услугами
                             </div>
                         </div>
 
