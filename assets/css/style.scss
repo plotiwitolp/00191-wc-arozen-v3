@@ -1742,6 +1742,8 @@ body.customize-support .header {
 
 .seoresult_yellow {
   .seoresult__item {
+    max-width: 100%;
+    width: calc(25% - 15px);
     background-color: #fdf5e3;
   }
 }
